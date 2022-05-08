@@ -1,8 +1,8 @@
 import { ReactElement } from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
-import { Dashboard } from "../components/dashboard/dashboard";
-import { EmployeeManagement } from "../components/employee-management/EmpManagement";
-import { LoginPage } from "../components/login-page/login-page";
+import { Dashboard } from "../components/dashboard/dashboard.component";
+import { EmployeeManagement } from "../components/employee-management/employee-management.component";
+import { LoginPage } from "../components/login-page/login-page.component";
 import { SecureRoute } from "./secure-route";
 
 export const Routes = (): ReactElement => {

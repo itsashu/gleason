@@ -1,6 +1,6 @@
 import { UserLoginDetailsType, UserType } from "../types/user-type";
 
-export const loginUser = async (
+export const loginUserApi = async (
   userLoginDetails: UserLoginDetailsType
 ): Promise<UserType> => {
   const response = await fetch("https://localhost:44333/api/users/getUser", {
@@ -16,7 +16,7 @@ export const loginUser = async (
   return user;
 };
 
-export const saveNewUser = async (newuserDetails: UserType): Promise<any> =>
+export const saveNewUserApi = async (newuserDetails: UserType): Promise<any> =>
   await fetch("https://localhost:44333/api/users/saveUser", {
     method: "POST",
     headers: {
@@ -25,3 +25,15 @@ export const saveNewUser = async (newuserDetails: UserType): Promise<any> =>
     },
     body: JSON.stringify(newuserDetails),
   });
+
+export const getUsersApi = async (): Promise<UserType[]> => {
+  const response = await fetch(
+    "https://localhost:44333/api/users/getAllUsers",
+    {
+      method: "GET",
+    }
+  );
+  const users: UserType[] = await response.json();
+  console.dir("users \n" + JSON.stringify(users));
+  return users;
+};

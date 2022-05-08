@@ -6,7 +6,7 @@ import IconButton from "@material-ui/core/IconButton";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import PersonIcon from "@mui/icons-material/Person";
-import { loginUser } from "../../api-service/gleason.api-service";
+import { loginUserApi } from "../../api-service/gleason.api-service";
 import { UserLoginDetailsType, UserType } from "../../types/user-type";
 import "./login-page.css";
 import { TextField } from "@material-ui/core";
@@ -25,7 +25,7 @@ export const LoginPage = (): ReactElement => {
     };
 
     try {
-      const user: UserType = await loginUser(userLoginDetails);
+      const user: UserType = await loginUserApi(userLoginDetails);
       console.log("user \n" + JSON.stringify(user));
 
       if (user.Username) {
@@ -48,6 +48,7 @@ export const LoginPage = (): ReactElement => {
           required
           fullWidth
           className="inputs"
+          label="UserName"
           placeholder="username"
           variant="outlined"
           margin="normal"
@@ -67,6 +68,7 @@ export const LoginPage = (): ReactElement => {
           required
           fullWidth
           variant="outlined"
+          label="Password"
           className="inputs"
           placeholder="password"
           margin="normal"

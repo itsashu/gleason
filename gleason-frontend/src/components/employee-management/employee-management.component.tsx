@@ -1,6 +1,6 @@
-import { Button, OutlinedInput } from "@material-ui/core";
+import { Button, OutlinedInput, TextField } from "@material-ui/core";
 import { ReactElement, useState } from "react";
-import { saveNewUser } from "../../api-service/gleason.api-service";
+import { saveNewUserApi } from "../../api-service/gleason.api-service";
 import { UserType } from "../../types/user-type";
 
 export const EmployeeManagement = (): ReactElement => {
@@ -20,7 +20,7 @@ export const EmployeeManagement = (): ReactElement => {
       Actions,
     };
     try {
-      await saveNewUser(newUserDetails);
+      await saveNewUserApi(newUserDetails);
     } catch (e) {
       setError(true);
     }
@@ -29,34 +29,47 @@ export const EmployeeManagement = (): ReactElement => {
 
   return (
     <>
-      EmpManagement <br />
-      <br />
       ADD NEW EMPLOYEE
       {!error && (
         <>
-          <OutlinedInput
+          <TextField
+            margin="normal"
+            variant="outlined"
             placeholder="UserName"
+            label="UserName"
             value={Username}
             onChange={(event) => setUsername(event.target.value)}
           />
-          <OutlinedInput
-            placeholder="Pasword"
+          <TextField
+            placeholder="Password"
+            label="Password"
+            margin="normal"
+            variant="outlined"
             type="Password"
             value={UserPassword}
             onChange={(event) => setUserPassword(event.target.value)}
           />
-          <OutlinedInput
+          <TextField
             placeholder="Address"
+            label="Address"
+            margin="normal"
+            variant="outlined"
             value={UserAddress}
             onChange={(event) => setUserAddress(event.target.value)}
           />
-          <OutlinedInput
+          <TextField
             placeholder="Roles"
+            label="Roles"
+            margin="normal"
+            variant="outlined"
             value={Roles}
             onChange={(event) => setRoles(event.target.value)}
           />
-          <OutlinedInput
+          <TextField
             placeholder="Actions"
+            label="Actions"
+            margin="normal"
+            variant="outlined"
             value={Actions}
             onChange={(event) => setActions(event.target.value)}
           />
