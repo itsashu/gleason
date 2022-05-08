@@ -1,8 +1,8 @@
-import React, { ReactElement } from "react";
+import { ReactElement } from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
-import { Dashboard } from "./dashboard";
-import { EmpManagement } from "./EmpManagement";
-import { LoginPage } from "./login-page";
+import { Dashboard } from "../components/dashboard/dashboard";
+import { EmployeeManagement } from "../components/employee-management/EmpManagement";
+import { LoginPage } from "../components/login-page/login-page";
 import { SecureRoute } from "./secure-route";
 
 export const Routes = (): ReactElement => {
@@ -11,7 +11,11 @@ export const Routes = (): ReactElement => {
       <Switch>
         <Route exact path="/login" component={LoginPage} />
         <SecureRoute exact path="/dashboard" component={Dashboard} />
-        <SecureRoute exact path="/userManagement" component={EmpManagement} />
+        <SecureRoute
+          exact
+          path="/userManagement"
+          component={EmployeeManagement}
+        />
         <Route path="/" component={LoginPage} />
         <Route path="" render={() => <Redirect to="/login" />} />
       </Switch>

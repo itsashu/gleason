@@ -1,5 +1,5 @@
-import React, { ReactElement, useEffect, useState } from "react";
-import { UserType } from "./user-type";
+import { ReactElement, useEffect, useState } from "react";
+import { UserType } from "../../types/user-type";
 
 export const Dashboard = (): ReactElement => {
   const [users, setUsers] = useState<UserType[]>([]);
@@ -13,11 +13,6 @@ export const Dashboard = (): ReactElement => {
       "https://localhost:44333/api/users/getAllUsers",
       {
         method: "GET",
-        // headers: {
-        //   Accept: "application/json",
-        //   "Content-Type": "application/json",
-        // },
-        // body: JSON.stringify({ a: 1, b: "Textual content" }),
       }
     );
     const users: UserType[] = await result.json();

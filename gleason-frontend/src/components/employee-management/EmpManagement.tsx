@@ -1,8 +1,9 @@
 import { Button, OutlinedInput } from "@material-ui/core";
-import React, { ReactElement, useState } from "react";
-import { UserType } from "./user-type";
+import { ReactElement, useState } from "react";
+import { saveNewUser } from "../../api-service/gleason.api-service";
+import { UserType } from "../../types/user-type";
 
-export const EmpManagement = (): ReactElement => {
+export const EmployeeManagement = (): ReactElement => {
   const [Username, setUsername] = useState<string>("");
   const [UserPassword, setUserPassword] = useState<string>("");
   const [UserAddress, setUserAddress] = useState<string>("");
@@ -10,8 +11,8 @@ export const EmpManagement = (): ReactElement => {
   const [Roles, setRoles] = useState<string>("");
   const [error, setError] = useState<boolean>(false);
 
-  const saveNewUser = async () => {
-    const newUser: UserType = {
+  const createNewUser = async () => {
+    const newUserDetails: UserType = {
       Username,
       UserPassword,
       UserAddress,
@@ -19,14 +20,7 @@ export const EmpManagement = (): ReactElement => {
       Actions,
     };
     try {
-      await fetch("https://localhost:44333/api/users/saveUser", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newUser),
-      });
+      await saveNewUser(newUserDetails);
     } catch (e) {
       setError(true);
     }
@@ -70,7 +64,7 @@ export const EmpManagement = (): ReactElement => {
             variant="contained"
             size="large"
             color="primary"
-            onClick={saveNewUser}
+            onClick={createNewUser}
           >
             Save New User
           </Button>
