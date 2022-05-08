@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-globals */
 import { ReactElement } from "react";
 import { AppBar, Box, Button, Toolbar } from "@material-ui/core";
 import IconButton from "@mui/material/IconButton";
@@ -24,7 +25,7 @@ export const TopNavBar = (props: {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            News
+            Gleason {location.pathname.split("/")[1]}
           </Typography>
           <Button color="inherit" onClick={() => props.logoutCallback()}>
             {props.isAuthenticated ? "Logout" : "Login"}

@@ -31,7 +31,7 @@ export const LoginPage = (): ReactElement => {
       if (user.Username) {
         sessionStorage.setItem("isAuthenticated", "true");
         // eslint-disable-next-line no-restricted-globals
-        location.href = "/dashboard";
+        location.href = "/Employee-Dashboard";
       } else {
         setError(true);
       }

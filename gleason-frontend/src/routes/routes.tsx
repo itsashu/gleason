@@ -10,10 +10,10 @@ export const Routes = (): ReactElement => {
     <BrowserRouter>
       <Switch>
         <Route exact path="/login" component={LoginPage} />
-        <SecureRoute exact path="/dashboard" component={Dashboard} />
+        <SecureRoute exact path="/Employee-Dashboard" component={Dashboard} />
         <SecureRoute
           exact
-          path="/userManagement"
+          path="/Employee-Management"
           component={EmployeeManagement}
         />
         <Route path="/" component={LoginPage} />

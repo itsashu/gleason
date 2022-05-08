@@ -33,8 +33,8 @@ function App() {
       />
       <SideNavBar
         navItems={[
-          <a href="/userManagement">User management </a>,
-          <a href="/dashboard">Dashboard</a>,
+          <a href="/Employee-Dashboard">Dashboard</a>,
+          <a href="/Employee-Management">User management </a>,
         ]}
         open={toggleDrawer}
         toggleDrawerCallback={toggleDrawerCallback}
